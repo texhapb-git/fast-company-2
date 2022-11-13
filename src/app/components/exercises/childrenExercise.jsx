@@ -11,11 +11,24 @@ const ChildrenExercise = () => {
                 <code>React.Children.toArray</code>
             </p>
 
-            <Component />
-            <Component />
-            <Component />
+            <ComponentList>
+                <Component />
+                <Component />
+                <Component />
+            </ComponentList>
+
         </CollapseWrapper>
     );
+};
+
+const ComponentList = ({ children }) => {
+    return React.Children.map(children, (child, index) => {
+        return (
+            <>
+                {index + 1} {child}
+            </>
+        );
+    });
 };
 
 const Component = () => {
